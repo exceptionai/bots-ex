@@ -31,7 +31,7 @@ public class SegmentModel {
 	}
 
 	@Id
-	@Column(name = "ID")
+	@Column(name = "ID_SEGMENT")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEGMENT_SEQ")
 	@SequenceGenerator(name = "SEGMENT_SEQ", sequenceName = "SEGMENT_SEQ", allocationSize = 1)
 	public long getId() {
