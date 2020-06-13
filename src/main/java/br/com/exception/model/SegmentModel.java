@@ -43,7 +43,7 @@ public class SegmentModel {
 	}
 	
 	@Column(name = "NAME")
-	@NotNull(message = "Nome obrigatório")
+	@NotNull(message = "É obrigatório informar o nome do segmento!")
 	@Size(min = 3, max = 100, message = "O nome do segmento deve conter de 3 a 100 caracteres.")
 	public String getName() {
 		return name;
