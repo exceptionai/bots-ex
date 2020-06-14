@@ -2,13 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isErrorPage="true" %>
 
 <!DOCTYPE html>
 <html>
 
 <head>
 
-    <title>Bots - Cadastro</title>
+    <title>Bots - Editar</title>
     
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 
@@ -16,7 +17,7 @@
 
 <body>
     
-    <ul>
+	<ul>
 		<li>
        		<a href="${contextPath}/bot">Bots</a>
        	</li>
@@ -24,23 +25,23 @@
            <a href="${contextPath}/segment">Segmentos</a>
        </li>
  	</ul>
-					
-	<h2>Bot</h2>
+    
+	<h2>Categoria</h2>
 	
-	<form:form modelAttribute="botModel" action="${contextPath}/bot" method="post">
+	<form:form modelAttribute="botModel" action="${contextPath}/bot/${botModel.idBot}" method="put">
 	
 		<spring:hasBindErrors name="botModel">
 			<div role="alert">
-				<form:errors path="*" />
+				<form:errors path="*" class="has-error" />
 			</div>
 		</spring:hasBindErrors>
 	
 		<div>
-			<label for="name">Nome:</label>
+			<label class="control-label" for="name">Nome:</label>
 			<form:input type="text" path="name" id="name" maxlength="50" size="50" />
 			<font color="red"><form:errors path="name"/></font><br/>
-        </div>
-        <div>
+                    </div>
+                    <div>
 			<label for="welcomeMsg">Mensagem de boas vindas:</label>
 			<form:input type="text" path="welcomeMsg" id="welcomeMsg" maxlength="50" size="50" />
 			<font color="red"><form:errors path="welcomeMsg"/></font><br/>
@@ -60,8 +61,8 @@
 			<form:input type="text" path="defaultAnswer" id="defaultAnswer" maxlength="50" size="50" />
 			<font color="red"><form:errors path="defaultAnswer"/></font><br/>
         </div>
-
-		<hr/>
+        
+		<hr>
 		
 		<a href="${contextPath}/bot">Cancelar</a>
 		<button type="submit">Gravar</button>
