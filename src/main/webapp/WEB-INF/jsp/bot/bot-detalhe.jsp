@@ -15,34 +15,34 @@
 
 <body>
 	<ul>
-	    <li>
-	        <a href="${contextPath}/segment">Segmentos</a>
-	    </li>
-	    <li>
-	    	<a href="${contextPath}/bot">Bots</a>
-	    </li>
-	</ul>
+			<li>
+	        	<a href="${contextPath}/bot">Bots</a>
+	        </li>
+	        <li>
+	            <a href="${contextPath}/segment">Segmentos</a>
+	        </li>
+       	</ul>
 		
 	<h2>Bot</h2>
 	
 	<div>
-		<label for="nome">Nome:</label>
+		<label for="name">Nome:</label>
 		<b>${bot.name}</b>
     </div>
     <div>
-		<label for="nome">Mensagem de boas vindas:</label>
+		<label for=welcomeMsg>Mensagem de boas vindas:</label>
 		<b>${bot.welcomeMsg}</b>
     </div>
     <div>
-		<label for="nome">Mensagem de despedida:</label>
+		<label for="farewellMsg">Mensagem de despedida:</label>
 		<b>${bot.farewellMsg}</b>
     </div>
     <div>
-		<label for="nome">Downtime:</label>
+		<label for="downtime">Downtime:</label>
 		<b>${bot.downtime}</b>
     </div>
     <div>
-		<label for="nome">Resposta padrão:</label>
+		<label for="defaultAnswer">Resposta padrão:</label>
 		<b>${bot.defaultAnswer}</b>
     </div>
 	<hr>
