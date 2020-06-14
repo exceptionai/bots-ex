@@ -87,7 +87,7 @@ public class BotModel {
 	}
 
 	@NotNull(message = "É obrigatório informar o downtime do bot!")
-	@Min(value = 0, message = "O bot não deve ter um downtime negativo.")
+	@Min(value = 1000, message = "O downtime mínimo é 1000.")
 	@Max(value = 1000000, message = "O downtime máximo é 1000000.")
 	public int getDowntime() {
 		return downtime;
