@@ -22,11 +22,6 @@ FROM DUAL;
 END;
 /
 
-INSERT INTO tb_bot (name, welcome_msg, farewell_msg, downtime, default_answer) VALUES ('Robô Ed', 'Olá!', 'Até breve!', 1000, 'Desculpa, essa eu não entendi :(');
-INSERT INTO tb_bot (name, welcome_msg, farewell_msg, downtime, default_answer) VALUES ('Bender', 'Oi', 'Té mais', 400, 'Repete');
-INSERT INTO tb_bot (name, welcome_msg, farewell_msg, downtime, default_answer) VALUES ('SimSimi', 'Olá!', 'Tchau, até um outro dia', 1000, 'Fala de novo? Ainda não fui ensinado sobre isso');
-INSERT INTO tb_bot (name, welcome_msg, farewell_msg, downtime, default_answer) VALUES ('Bot do Rota', 'Olá, pessoal!', 'Tudo bem, pessoal? Então tá certo, desejo a todos um ótimo final de semana!', 5000, 'Essa eu não entendi, né... :(');
-
 commit;
 
 SELECT * FROM tb_bot;

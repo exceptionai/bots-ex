@@ -20,11 +20,6 @@ FROM DUAL;
 END;
 /
 
-INSERT INTO TB_SEGMENT (name, tb_bot) VALUES ('Sustentabilidade', 1);
-INSERT INTO TB_SEGMENT (name, tb_bot) VALUES ('Números em binário', 2);
-INSERT INTO TB_SEGMENT (name, tb_bot) VALUES ('Aprender com o usuário', 3);
-INSERT INTO TB_SEGMENT (name, tb_bot) VALUES ('Formar-se mais uma vez ou ter mais uma experiência no mercado de trabalho, aleatoriamente', 4);
-
 commit;
 
 SELECT * FROM TB_SEGMENT;
