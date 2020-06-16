@@ -37,13 +37,13 @@ private static final String SEGMENT_FOLDER = "segment/";
 					   @ModelAttribute("segmentModel") SegmentModel segmentModel, 
 					   Model model) {
 		
-		if("segment-editar".equals(page)) {
+		if("segment-edit".equals(page)) {
 			model.addAttribute("segmentModel", segmentService.get(id));
 		}
 		
 		model.addAttribute("bots", botService.listAll());
-		
-		return SEGMENT_FOLDER + page;
+
+		return SEGMENT_FOLDER + "segment-edit";
 	}
 
 	@GetMapping()
@@ -57,7 +57,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 	public String findById(@PathVariable("id") long id, Model model) {
 		
 		model.addAttribute("segment", segmentService.get(id));
-		return SEGMENT_FOLDER +  "segment-detalhe";
+		return SEGMENT_FOLDER +  "segment-detail";
 	}
 	
 	@PostMapping()
@@ -65,7 +65,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("bots", botService.listAll());
-			return SEGMENT_FOLDER + "segment-novo";
+			return SEGMENT_FOLDER + "segment-new";
 		}
 		
 		segmentService.save(segmentModel);
@@ -79,7 +79,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("bots", botService.listAll());
-			return SEGMENT_FOLDER + "segment-editar";
+			return SEGMENT_FOLDER + "segment-edit";
 		}
 		
 		segmentModel.setId(id);
