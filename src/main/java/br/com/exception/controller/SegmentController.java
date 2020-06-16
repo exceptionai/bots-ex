@@ -2,6 +2,8 @@ package br.com.exception.controller;
 
 import javax.validation.Valid;
 
+import br.com.exception.service.BotService;
+import br.com.exception.service.SegmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +25,11 @@ import br.com.exception.model.SegmentModel;
 public class SegmentController {
 private static final String SEGMENT_FOLDER = "segment/";
 	
-	//@Autowired
-	//public SegmentRepository segmentRepository;
+	@Autowired
+	public SegmentService segmentService;
 	
-	//@Autowired
-	//public BotRepository botRepository;
+	@Autowired
+	public BotService botService;
 	
 	@GetMapping("/form")
 	public String open(@RequestParam String page, 
@@ -35,38 +37,38 @@ private static final String SEGMENT_FOLDER = "segment/";
 					   @ModelAttribute("segmentModel") SegmentModel segmentModel, 
 					   Model model) {
 		
-		if("segment-editar".equals(page)) {
-			//model.addAttribute("segmentModel", segmentRepository.findById(id).get());
+		if("segment-edit".equals(page)) {
+			model.addAttribute("segmentModel", segmentService.get(id));
 		}
 		
-		//model.addAttribute("bots", botRepository.findAll());
-		
-		return SEGMENT_FOLDER + page;
+		model.addAttribute("bots", botService.listAll());
+
+		return SEGMENT_FOLDER + "segment-edit";
 	}
 
 	@GetMapping()
 	public String findAll(Model model) {
 
-		//model.addAttribute("segments", segmentRepository.findAll());
+		model.addAttribute("segments", segmentService.listAll());
 		return SEGMENT_FOLDER +  "segments";
 	}
 
 	@GetMapping("/{id}")
 	public String findById(@PathVariable("id") long id, Model model) {
 		
-		//model.addAttribute("segment", segmentRepository.findById(id).get());
-		return SEGMENT_FOLDER +  "segment-detalhe";
+		model.addAttribute("segment", segmentService.get(id));
+		return SEGMENT_FOLDER +  "segment-detail";
 	}
 	
 	@PostMapping()
 	public String save(@Valid SegmentModel segmentModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		
 		if(bindingResult.hasErrors()) {
-			//model.addAttribute("bots", botRepository.findAll());
-			return SEGMENT_FOLDER + "segment-novo";
+			model.addAttribute("bots", botService.listAll());
+			return SEGMENT_FOLDER + "segment-new";
 		}
 		
-		//segmentRepository.save(segmentModel);
+		segmentService.save(segmentModel);
 		redirectAttributes.addFlashAttribute("messages", "Segmento cadastrado com sucesso!");
 		
 		return "redirect:/segment";
@@ -76,12 +78,12 @@ private static final String SEGMENT_FOLDER = "segment/";
 	public String update(@PathVariable("id") long id, @Valid SegmentModel segmentModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		
 		if(bindingResult.hasErrors()) {
-			//model.addAttribute("bots", botRepository.findAll());
-			return SEGMENT_FOLDER + "segment-editar";
+			model.addAttribute("bots", botService.listAll());
+			return SEGMENT_FOLDER + "segment-edit";
 		}
 		
 		segmentModel.setId(id);
-		//segmentRepository.save(segmentModel);
+		segmentService.save(segmentModel);
 		redirectAttributes.addFlashAttribute("messages", "Segmento alterado com sucesso!");
 		
 		return "redirect:/segment";
@@ -90,7 +92,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 	@DeleteMapping("/{id}")
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
-		//segmentRepository.deleteById(id);
+		segmentService.delete(id);
 		redirectAttributes.addFlashAttribute("messages", "Segmento excluído com sucesso!");
 
 		return "redirect:/segment";

@@ -2,6 +2,7 @@ package br.com.exception.controller;
 
 import javax.validation.Valid;
 
+import br.com.exception.service.BotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.exception.model.BotModel;
-import br.com.exception.repository.BotRepository;
 
 @Controller
 @RequestMapping("/bot")
@@ -26,7 +26,7 @@ public class BotController {
 	private static final String BOT_FOLDER = "bot/";
 	
 	@Autowired
-	public BotRepository repository;
+	public BotService botService;
 	
 	@GetMapping("/form")
 	public String open(@RequestParam String page, 
@@ -35,7 +35,7 @@ public class BotController {
 					   Model model) {
 		
 		if("bot-editar".equals(page)) {
-			model.addAttribute("botModel", repository.findById(id).get());
+			model.addAttribute("botModel", botService.get(id));
 		}
 		
 		return BOT_FOLDER + page;
@@ -44,14 +44,14 @@ public class BotController {
 	@GetMapping()
 	public String findAll(Model model) {
 
-		model.addAttribute("bots", repository.findAll());
+		model.addAttribute("bots", botService.listAll());
 		return BOT_FOLDER +  "bots";
 	}
 
 	@GetMapping("/{id}")
 	public String findById(@PathVariable("id") long id, Model model) {
 		
-		model.addAttribute("bot", repository.findById(id).get());
+		model.addAttribute("bot", botService.get(id));
 		return BOT_FOLDER +  "bot-detalhe";
 	}
 	
@@ -62,7 +62,7 @@ public class BotController {
 			return BOT_FOLDER + "bot-novo";
 		}
 		
-		repository.save(botModel);
+		botService.save(botModel);
 		redirectAttributes.addFlashAttribute("messages", "Bot cadastrado com sucesso!");
 		
 		return "redirect:/bot";
@@ -76,7 +76,7 @@ public class BotController {
 		}
 		
 		botModel.setIdBot(id);
-		repository.save(botModel);
+		botService.save(botModel);
 		redirectAttributes.addFlashAttribute("messages", "Bot alterado com sucesso!");
 		
 		return "redirect:/bot";
@@ -85,7 +85,7 @@ public class BotController {
 	@DeleteMapping("/{id}")
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
-		repository.deleteById(id);
+		botService.delete(id);
 		redirectAttributes.addFlashAttribute("messages", "Bot excluído com sucesso!");
 
 		return "redirect:/bot";

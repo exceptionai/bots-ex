@@ -22,8 +22,7 @@
 		<h3>${messages}</h3>
 	</c:if>
 
-	<a href="${contextPath}/segment/form?page=new-segment">Novo
-		Segmento</a>
+	<a href="${contextPath}/segment/form?page=segment-new">Novo Segmento</a>
 
 	<table>
 		<thead>
@@ -39,7 +38,7 @@
 					<td><form:form action="${contextPath}/segment/${segment.id}"
 							method="delete">
 							<a href="${contextPath}/segment/${segment.id}">Detalhes</a>
-							<a href="${contextPath}/segment/form?page=edit-segment&id=${segment.id}">Editar</a>
+							<a href="${contextPath}/segment/form?page=segment-edit&id=${segment.id}">Editar</a>
 							<input type="submit" value="Excluir">
 						</form:form>
 					</td>
