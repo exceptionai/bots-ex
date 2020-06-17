@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -47,38 +47,38 @@
 </header>
  	<main class="container">
 		<h1>Cadastrar bot</h1>
-	
+
 	<form:form modelAttribute="botModel" action="${contextPath}/bot" method="post">
-	
+
 		<spring:hasBindErrors name="botModel">
 			<div role="alert">
 				<form:errors path="*" />
 			</div>
 		</spring:hasBindErrors>
-	
+
 		<div class="form-group">
 			<label for="name">Nome:</label>
-			<form:input class="form-control" type="text" path="name" id="name" maxlength="50" size="50" />
+			<form:input class="form-control" type="text" path="name" id="name" maxlength="255" size="50" />
 			<font color="red"><form:errors path="name"/></font><br/>
         </div>
         <div class="form-group">
 			<label for="welcomeMsg">Mensagem de boas vindas:</label>
-			<form:input class="form-control" type="text" path="welcomeMsg" id="welcomeMsg" maxlength="50" size="50" />
+			<form:input type="text" class="form-control" path="welcomeMsg" id="welcomeMsg" maxlength="255" size="50" />
 			<font color="red"><form:errors path="welcomeMsg"/></font><br/>
         </div>
         <div class="form-group">
 			<label for="farewellMsg">Mensagem de despedida:</label>
-			<form:input class="form-control" type="text" path="farewellMsg" id="farewellMsg" maxlength="50" size="50" />
+			<form:input type="text" class="form-control" path="farewellMsg" id="farewellMsg" maxlength="255" size="50" />
 			<font color="red"><form:errors path="farewellMsg"/></font><br/>
         </div>
         <div class="form-group">
 			<label for="downtime">Downtime:</label>
-			<form:input class="form-control" type="number" path="downtime" id="downtime" maxlength="50" size="50" />
+			<form:input class="form-control" type="number" path="downtime" id="downtime" maxlength="11" size="50" />
 			<font color="red"><form:errors path="downtime"/></font><br/>
         </div>
         <div class="form-group">
 			<label for="defaultAnswer">Resposta padrão:</label>
-			<form:input class="form-control" type="text" path="defaultAnswer" id="defaultAnswer" maxlength="50" size="50" />
+			<form:input class="form-control" type="text" path="defaultAnswer" id="defaultAnswer" maxlength="255" size="50" />
 			<font color="red"><form:errors path="defaultAnswer"/></font><br/>
         </div>
 		<button type="submit" class="btn btn-outline-primary">Gravar</button>
