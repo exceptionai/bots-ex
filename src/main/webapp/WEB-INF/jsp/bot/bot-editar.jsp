@@ -55,6 +55,8 @@
                 <form:errors path="*" class="has-error"/>
             </div>
         </spring:hasBindErrors>
+        
+        <form:input class="form-control" type="hidden" path="idBot" id="name"/>
 
         <div class="form-group">
             <label for="name">Nome:</label>
