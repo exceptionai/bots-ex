@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -54,6 +55,7 @@ public class SegmentModel {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "Um bot deve ser selecionado")
 	@JoinColumn(name = "TB_BOT", nullable = false)
 	public BotModel getBot() {
 		return bot;

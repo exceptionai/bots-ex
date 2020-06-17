@@ -72,6 +72,7 @@
             <form:select path="bot.idBot" class="form-control">
                 <form:options items="${bots}" itemLabel="name" itemValue="idBot" />
             </form:select>
+            <form:errors path="bot"/><br/>
         </div>
 
         <button class="btn btn-outline-success" type="submit">Gravar</button>

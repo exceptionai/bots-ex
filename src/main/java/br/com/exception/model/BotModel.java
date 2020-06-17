@@ -1,10 +1,10 @@
 package br.com.exception.model;
 
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -90,7 +90,7 @@ public class BotModel {
 		this.farewellMsg = farewellMsg;
 	}
 
-	@NotBlank(message = "O downtime não pode ser submetido em branco!")
+	@NotNull(message = "O downtime não pode ser submetido em branco!")
 	@Min(value = 1000, message = "O downtime mínimo é 1000.")
 	@Max(value = 1000000, message = "O downtime máximo é 1000000.")
 	public Integer getDowntime() {
@@ -113,8 +113,7 @@ public class BotModel {
 		this.defaultAnswer = defaultAnswer;
 	}
 
-	@OneToMany(mappedBy = "bot")
-	@Cascade(CascadeType.DELETE_ORPHAN)
+	@OneToMany(cascade= CascadeType.ALL, mappedBy = "bot")
 	public List<SegmentModel> getSegments() {
 		return segments;
 	}
