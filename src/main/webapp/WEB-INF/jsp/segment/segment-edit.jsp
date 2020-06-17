@@ -56,6 +56,8 @@
             <form:errors path="*" class="has-error" />
         </div>
     </spring:hasBindErrors>
+	
+    <form:input class="form-control" type="hidden" path="id" id="name"/>
 
     <div class="form-group">
         <label class="control-label" for="name">Nome:</label>
