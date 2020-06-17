@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -54,8 +55,8 @@ public class BotModel {
 	}
 
 	@Column(name = "NAME")
-	@NotNull(message = "É obrigatório informar o nome do bot!")
-	@Size(min = 3, max = 50, message = "O nome do bot deve conter de 3 a 50 caracteres.")
+	@NotBlank(message = "O nome do bot não pode ser submetido em branco!")
+	@Size(min = 3, max = 255, message = "O nome do bot deve conter de 3 a 255 caracteres.")
 	public String getName() {
 		return name;
 	}
@@ -65,8 +66,8 @@ public class BotModel {
 	}
 
 	@Column(name = "WELCOME_MSG")
-	@NotNull(message = "É obrigatório informar a mensagem de boas vindas!")
-	@Size(min = 1, max = 50, message = "A mensagem de boas vindas deve conter de 1 a 50 caracteres.")
+	@NotBlank(message = "A mensagem de boas vindas não pode ser submetida em branco!")
+	@Size(min = 1, max = 255, message = "A mensagem de boas vindas deve conter de 1 a 255 caracteres.")
 	public String getWelcomeMsg() {
 		return welcomeMsg;
 	}
@@ -76,8 +77,8 @@ public class BotModel {
 	}
 
 	@Column(name = "FAREWELL_MSG")
-	@NotNull(message = "É obrigatório informar a mensagem de despedida!")
-	@Size(min = 1, max = 50, message = "A mensagem de despedida deve conter de 1 a 50 caracteres.")
+	@NotBlank(message = "A mensagem de despedida não pode ser submetida em branco!")
+	@Size(min = 1, max = 255, message = "A mensagem de despedida deve conter de 1 a 255 caracteres.")
 	public String getFarewellMsg() {
 		return farewellMsg;
 	}
@@ -86,7 +87,7 @@ public class BotModel {
 		this.farewellMsg = farewellMsg;
 	}
 
-	@NotNull(message = "É obrigatório informar o downtime do bot!")
+	@NotBlank(message = "O downtime não pode ser submetido em branco!")
 	@Min(value = 1000, message = "O downtime mínimo é 1000.")
 	@Max(value = 1000000, message = "O downtime máximo é 1000000.")
 	public int getDowntime() {
@@ -98,8 +99,8 @@ public class BotModel {
 	}
 
 	@Column(name = "DEFAULT_ANSWER")
-	@NotNull(message = "É obrigatório informar a mensagem padrão!")
-	@Size(min = 1, max = 50, message = "A mensagem padrão deve conter de 1 a 50 caracteres.")
+	@NotBlank(message = "A mensagem padrão não pode ser submetida em branco!")
+	@Size(min = 1, max = 255, message = "A mensagem padrão deve conter de 1 a 255 caracteres.")
 	public String getDefaultAnswer() {
 		return defaultAnswer;
 	}

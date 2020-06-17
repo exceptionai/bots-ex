@@ -1,0 +1,225 @@
+@import url(//db.onlinewebfonts.com/c/09d57d76383244264b7bdef717efcb36?family=Gotham+HTF+Book);
+
+body{
+	font-family: "Gotham HTF Book"!important;
+}
+
+@media (min-width: 300px){
+	.navbar-expand-lg .navbar-nav {
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	}
+	
+}
+@media (max-width: 600px){
+	.navbar-collapse.container {
+		padding-left:1em;
+	}
+	
+}
+.-bg-primary-color{
+    background-color: #0f1215;
+}
+
+.-bg-secondary{
+	background-color:#24252e;
+}
+
+.games-container{
+	padding-top: 2em;
+	color: #fff;
+	padding-left:0;
+	padding-right:0;
+}
+
+.games-container .content-title{
+    padding-left: 1.5em;
+    padding-bottom: 1em;
+}
+
+.content-title{
+	text-transform: uppercase;
+}
+
+img{
+	max-width: 100%;
+}
+
+.navbar img{
+	max-height: 50px;
+}
+
+.navbar img.rounded-circle{
+	background-color:#239b55;
+	border: 1px solid #239b55;
+}
+
+.link{ 
+	cursor:pointer;
+}
+
+.link.disabled{
+	cursor: default;
+}
+
+.user-area i{
+	color: #fff;
+	font-size:1rem;
+	padding-right:1rem;
+}
+
+.user-area i.disabled{
+	color: #6c757d;
+}
+
+.btn-secondary{
+	background-color:#2a2b35;
+	border-color:#090a0c;
+}
+
+.btn-primary{
+	background-color: firebrick!important;
+	border-color:#420b0b!important;
+}
+	
+.-bg-card{
+	background-color: #1a1c25;
+}
+
+.title-container, .title-container .application-title{
+	margin: 0 auto;
+}
+header > .row > img{
+	width: 26px;
+    margin-left: 1.4em;
+} 
+
+.vanillatoasts-icon{
+    box-shadow: none;
+    left: -45px;
+    top: 0;
+    height: 60px;
+    width: 60px;
+    z-index: 1000000;
+    border: none;
+    background-color: #1a1c25;
+}
+
+.no-game{
+	width:250px;
+}
+
+.border-primary-games{
+	border-color: firebrick;
+}
+
+img.vanillatoasts-icon{
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.vanillatoasts-toast {
+    background: rgba(59, 61, 74, 0.98);
+}
+
+#vanillatoasts-container{
+	z-index: 999999;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.vanillatoasts-text{
+    color: #c1c1c1;
+	
+}
+
+.vanillatoasts-title{
+    color: #fff;
+
+}
+
+.title-container .application-title{
+	padding-bottom:.5em;	
+	padding-top:.5em;	
+    text-transform: uppercase; 
+}
+
+.application-title{
+	color: #83848b;
+	font-size: .75em;
+	display: block;
+}
+
+nav.navbar{
+	padding:0;
+}
+
+nav.navbar a{
+    color: #eaeaeb;	
+    text-transform: uppercase; 
+}
+
+.container{
+	padding-top: 3rem !important;
+}
+
+.btn-outline-primary{
+	border-color: #239b55!important;
+	color: #239b55!important;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:active{
+	color: #fff !important;
+	background-color: #239b55 !important;
+}
+.btn-outline-primary:focus{
+	box-shadow: 0 0 0 .2rem rgba(35, 155, 85,.5)!important;
+	
+}
+
+
+nav.navbar ul li.nav-item{
+    margin-right: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+nav.navbar ul li.nav-item.active{
+	border-bottom: 3px solid #239b55;
+}
+/* Cards */
+.games_list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items:start;
+}
+
+.games-card {
+	width: 18rem;
+	color: white;
+	background-color: #15181d;
+	text-align: justify;	
+	border: 1px solid firebrick;
+}
+
+.games-card a {
+	color: #28c5e0;
+}
+
+.card-title {
+	font-size: 24px;
+}
+
+.card-subtitle {
+	font-size: 12px;
+}
+
+@media (min-width: 1200px){
+    ._container{
+        max-width: 1440px;
+    }
+}
