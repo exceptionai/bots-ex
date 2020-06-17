@@ -2,6 +2,7 @@ package br.com.exception.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,14 +25,14 @@ public class BotModel {
 	private String name;
 	private String welcomeMsg;
 	private String farewellMsg;
-	private int downtime;
+	private Integer downtime;
 	private String defaultAnswer;
 	private List<SegmentModel> segments;
 	
 	public BotModel() {
 	}
 
-	public BotModel(long idBot, String name, String welcomeMsg, String farewellMsg, int downtime,
+	public BotModel(long idBot, String name, String welcomeMsg, String farewellMsg, Integer downtime,
 			String defaultAnswer) {
 		super();
 		this.idBot = idBot;
@@ -55,7 +56,7 @@ public class BotModel {
 	}
 
 	@Column(name = "NAME")
-	@NotBlank(message = "O nome do bot não pode ser submetido em branco!")
+	@NotBlank(message = "O nome do bot nï¿½o pode ser submetido em branco!")
 	@Size(min = 3, max = 255, message = "O nome do bot deve conter de 3 a 255 caracteres.")
 	public String getName() {
 		return name;
@@ -66,7 +67,7 @@ public class BotModel {
 	}
 
 	@Column(name = "WELCOME_MSG")
-	@NotBlank(message = "A mensagem de boas vindas não pode ser submetida em branco!")
+	@NotBlank(message = "A mensagem de boas vindas nï¿½o pode ser submetida em branco!")
 	@Size(min = 1, max = 255, message = "A mensagem de boas vindas deve conter de 1 a 255 caracteres.")
 	public String getWelcomeMsg() {
 		return welcomeMsg;
@@ -77,7 +78,7 @@ public class BotModel {
 	}
 
 	@Column(name = "FAREWELL_MSG")
-	@NotBlank(message = "A mensagem de despedida não pode ser submetida em branco!")
+	@NotBlank(message = "A mensagem de despedida nï¿½o pode ser submetida em branco!")
 	@Size(min = 1, max = 255, message = "A mensagem de despedida deve conter de 1 a 255 caracteres.")
 	public String getFarewellMsg() {
 		return farewellMsg;
@@ -87,20 +88,20 @@ public class BotModel {
 		this.farewellMsg = farewellMsg;
 	}
 
-	@NotBlank(message = "O downtime não pode ser submetido em branco!")
-	@Min(value = 1000, message = "O downtime mínimo é 1000.")
-	@Max(value = 1000000, message = "O downtime máximo é 1000000.")
-	public int getDowntime() {
+	@NotNull(message = "O downtime nï¿½o pode ser submetido em branco!")
+	@Min(value = 1000, message = "O downtime mï¿½nimo ï¿½ 1000.")
+	@Max(value = 1000000, message = "O downtime mï¿½ximo ï¿½ 1000000.")
+	public Integer getDowntime() {
 		return downtime;
 	}
 
-	public void setDowntime(int downtime) {
+	public void setDowntime(Integer downtime) {
 		this.downtime = downtime;
 	}
 
 	@Column(name = "DEFAULT_ANSWER")
-	@NotBlank(message = "A mensagem padrão não pode ser submetida em branco!")
-	@Size(min = 1, max = 255, message = "A mensagem padrão deve conter de 1 a 255 caracteres.")
+	@NotBlank(message = "A mensagem padrï¿½o nï¿½o pode ser submetida em branco!")
+	@Size(min = 1, max = 255, message = "A mensagem padrï¿½o deve conter de 1 a 255 caracteres.")
 	public String getDefaultAnswer() {
 		return defaultAnswer;
 	}
@@ -109,7 +110,7 @@ public class BotModel {
 		this.defaultAnswer = defaultAnswer;
 	}
 
-	@OneToMany(mappedBy = "bot")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "bot")
 	public List<SegmentModel> getSegments() {
 		return segments;
 	}
