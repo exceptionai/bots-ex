@@ -3,8 +3,8 @@
 
 CREATE TABLE tb_segment (
     id_segment NUMBER(11) NOT NULL PRIMARY KEY,
-    name VARCHAR(255),
-    tb_bot NUMBER(11),
+    name VARCHAR(255) NOT NULL,
+    tb_bot NUMBER(11) NOT NULL,
     CONSTRAINT FK_ID_BOT FOREIGN KEY (tb_bot) REFERENCES tb_bot(id_bot)
 );
 

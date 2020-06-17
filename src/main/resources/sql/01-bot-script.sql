@@ -3,11 +3,11 @@
 
 CREATE TABLE tb_bot (
     id_bot NUMBER(11) NOT NULL PRIMARY KEY,
-    name VARCHAR2(255),
-    welcome_msg VARCHAR(255),
-    farewell_msg VARCHAR(255),
-    downtime NUMBER(11),
-    default_answer VARCHAR(255)
+    name VARCHAR2(255) NOT NULL,
+    welcome_msg VARCHAR(255) NOT NULL,
+    farewell_msg VARCHAR(255) NOT NULL,
+    downtime NUMBER(11) NOT NULL,
+    default_answer VARCHAR(255) NOT NULL
 );
 
 CREATE SEQUENCE BOT_SEQ START WITH 1 INCREMENT BY 1;

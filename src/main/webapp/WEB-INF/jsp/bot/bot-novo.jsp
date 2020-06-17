@@ -62,27 +62,27 @@
 	
 		<div>
 			<label for="name">Nome:</label>
-			<form:input type="text" path="name" id="name" maxlength="50" size="50" />
+			<form:input type="text" path="name" id="name" maxlength="255" size="50" />
 			<font color="red"><form:errors path="name"/></font><br/>
         </div>
         <div>
 			<label for="welcomeMsg">Mensagem de boas vindas:</label>
-			<form:input type="text" path="welcomeMsg" id="welcomeMsg" maxlength="50" size="50" />
+			<form:input type="text" path="welcomeMsg" id="welcomeMsg" maxlength="255" size="50" />
 			<font color="red"><form:errors path="welcomeMsg"/></font><br/>
         </div>
         <div>
 			<label for="farewellMsg">Mensagem de despedida:</label>
-			<form:input type="text" path="farewellMsg" id="farewellMsg" maxlength="50" size="50" />
+			<form:input type="text" path="farewellMsg" id="farewellMsg" maxlength="255" size="50" />
 			<font color="red"><form:errors path="farewellMsg"/></font><br/>
         </div>
         <div>
 			<label for="downtime">Downtime:</label>
-			<form:input type="number" path="downtime" id="downtime" maxlength="50" size="50" />
+			<form:input type="number" path="downtime" id="downtime" maxlength="11" size="50" />
 			<font color="red"><form:errors path="downtime"/></font><br/>
         </div>
         <div>
 			<label for="defaultAnswer">Resposta padrão:</label>
-			<form:input type="text" path="defaultAnswer" id="defaultAnswer" maxlength="50" size="50" />
+			<form:input type="text" path="defaultAnswer" id="defaultAnswer" maxlength="255" size="50" />
 			<font color="red"><form:errors path="defaultAnswer"/></font><br/>
         </div>
 
