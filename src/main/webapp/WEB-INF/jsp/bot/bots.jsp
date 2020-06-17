@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -64,8 +64,8 @@
 					<th data-field="welcome_msg">Mensagem de boas vindas</th>
 					<th data-field="farewell_msg">Mensagem de despedida</th>
 					<th data-field="downtime">Downtime</th>
-					<th data-field="default_answer">Resposta padrão</th>
-					<th class="actions" width="220">Ações</th>
+					<th data-field="default_answer">Resposta padrÃ£o</th>
+					<th class="actions" width="220">AÃ§Ãµes</th>
 				</tr>
 			</thead>
 			<tbody>
