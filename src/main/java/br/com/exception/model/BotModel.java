@@ -5,6 +5,7 @@ import org.hibernate.annotations.CascadeType;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,14 +28,14 @@ public class BotModel {
 	private String name;
 	private String welcomeMsg;
 	private String farewellMsg;
-	private int downtime;
+	private Integer downtime;
 	private String defaultAnswer;
 	private List<SegmentModel> segments;
 	
 	public BotModel() {
 	}
 
-	public BotModel(long idBot, String name, String welcomeMsg, String farewellMsg, int downtime,
+	public BotModel(long idBot, String name, String welcomeMsg, String farewellMsg, Integer downtime,
 			String defaultAnswer) {
 		super();
 		this.idBot = idBot;
@@ -93,17 +94,18 @@ public class BotModel {
 	@NotBlank(message = "O downtime não pode ser submetido em branco!")
 	@Min(value = 1000, message = "O downtime mínimo é 1000.")
 	@Max(value = 1000000, message = "O downtime máximo é 1000000.")
-	public int getDowntime() {
+	public Integer getDowntime() {
 		return downtime;
 	}
 
-	public void setDowntime(int downtime) {
+	public void setDowntime(Integer downtime) {
 		this.downtime = downtime;
 	}
 
 	@Column(name = "DEFAULT_ANSWER")
 	@NotBlank(message = "A mensagem padrão não pode ser submetida em branco!")
 	@Size(min = 1, max = 255, message = "A mensagem padrão deve conter de 1 a 255 caracteres.")
+
 	public String getDefaultAnswer() {
 		return defaultAnswer;
 	}
