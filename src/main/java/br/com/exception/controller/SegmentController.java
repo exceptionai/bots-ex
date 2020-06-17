@@ -43,7 +43,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 		
 		model.addAttribute("bots", botService.listAll());
 
-		return SEGMENT_FOLDER + "segment-edit";
+		return SEGMENT_FOLDER + page;
 	}
 
 	@GetMapping()
