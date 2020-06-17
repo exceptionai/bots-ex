@@ -93,7 +93,7 @@ private static final String SEGMENT_FOLDER = "segment/";
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
 		segmentService.delete(id);
-		redirectAttributes.addFlashAttribute("messages", "Segmento excluído com sucesso!");
+		redirectAttributes.addFlashAttribute("messages", "Segmento excluÃ­do com sucesso!");
 
 		return "redirect:/segment";
 	}
