@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -43,7 +43,7 @@ public class SegmentModel {
 	}
 	
 	@Column(name = "NAME")
-	@NotNull(message = "É obrigatório informar o nome do segmento!")
+	@NotBlank(message = "O nome do segmento não pode ser submetido em branco!")
 	@Size(min = 3, max = 255, message = "O nome do segmento deve conter de 3 a 255 caracteres.")
 	public String getName() {
 		return name;
