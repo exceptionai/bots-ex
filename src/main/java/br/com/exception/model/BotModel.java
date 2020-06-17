@@ -1,5 +1,8 @@
 package br.com.exception.model;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -55,7 +58,7 @@ public class BotModel {
 	}
 
 	@Column(name = "NAME")
-	@NotBlank(message = "O nome do bot n„o pode ser submetido em branco!")
+	@NotBlank(message = "O nome do bot n√£o pode ser submetido em branco!")
 	@Size(min = 3, max = 255, message = "O nome do bot deve conter de 3 a 255 caracteres.")
 	public String getName() {
 		return name;
@@ -66,7 +69,7 @@ public class BotModel {
 	}
 
 	@Column(name = "WELCOME_MSG")
-	@NotBlank(message = "A mensagem de boas vindas n„o pode ser submetida em branco!")
+	@NotBlank(message = "A mensagem de boas vindas n√£o pode ser submetida em branco!")
 	@Size(min = 1, max = 255, message = "A mensagem de boas vindas deve conter de 1 a 255 caracteres.")
 	public String getWelcomeMsg() {
 		return welcomeMsg;
@@ -77,7 +80,7 @@ public class BotModel {
 	}
 
 	@Column(name = "FAREWELL_MSG")
-	@NotBlank(message = "A mensagem de despedida n„o pode ser submetida em branco!")
+	@NotBlank(message = "A mensagem de despedida n√£o pode ser submetida em branco!")
 	@Size(min = 1, max = 255, message = "A mensagem de despedida deve conter de 1 a 255 caracteres.")
 	public String getFarewellMsg() {
 		return farewellMsg;
@@ -87,9 +90,9 @@ public class BotModel {
 		this.farewellMsg = farewellMsg;
 	}
 
-	@NotBlank(message = "O downtime n„o pode ser submetido em branco!")
-	@Min(value = 1000, message = "O downtime mÌnimo È 1000.")
-	@Max(value = 1000000, message = "O downtime m·ximo È 1000000.")
+	@NotBlank(message = "O downtime n√£o pode ser submetido em branco!")
+	@Min(value = 1000, message = "O downtime m√≠nimo √© 1000.")
+	@Max(value = 1000000, message = "O downtime m√°ximo √© 1000000.")
 	public int getDowntime() {
 		return downtime;
 	}
@@ -99,8 +102,8 @@ public class BotModel {
 	}
 
 	@Column(name = "DEFAULT_ANSWER")
-	@NotBlank(message = "A mensagem padr„o n„o pode ser submetida em branco!")
-	@Size(min = 1, max = 255, message = "A mensagem padr„o deve conter de 1 a 255 caracteres.")
+	@NotBlank(message = "A mensagem padr√£o n√£o pode ser submetida em branco!")
+	@Size(min = 1, max = 255, message = "A mensagem padr√£o deve conter de 1 a 255 caracteres.")
 	public String getDefaultAnswer() {
 		return defaultAnswer;
 	}
@@ -110,6 +113,7 @@ public class BotModel {
 	}
 
 	@OneToMany(mappedBy = "bot")
+	@Cascade(CascadeType.DELETE_ORPHAN)
 	public List<SegmentModel> getSegments() {
 		return segments;
 	}
