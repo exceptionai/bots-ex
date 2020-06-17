@@ -1,7 +1,5 @@
 package br.com.exception.model;
 
-import org.hibernate.annotations.Cascade;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
