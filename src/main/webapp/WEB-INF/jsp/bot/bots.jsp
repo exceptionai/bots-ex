@@ -16,9 +16,9 @@
 	<body class="-bg-primary-color text-white">
 	
 	<header>
-
-		<div class="row mx-0">
-		
+		<div class="row mx-0 -bg-card">
+			<img src="<c:url value="/resources/img/logo.png" />"
+				 alt="logo exception">
 			<div class="_container title-container">
 				<h1 class="application-title">Exception</h1>
 			</div>
@@ -37,7 +37,7 @@
 				<ul class="user-area navbar-nav d-flex align-items-center">
 					<li><a href=""><i class="fas fa-project-diagram"></i></a></li>
 					<li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
-					<li><span class="text-light pr-2">Lucas_Alessandro</span/> <img
+					<li><span class="text-light pr-2">Lucas_Alessandro</span> <img
 						src="<c:url value="/resources/img/profilepicture.png" />"
 						class="rounded-circle" alt="Cinque Terre"></li>
 
@@ -48,9 +48,8 @@
 	</header>
 	<main class="container">
 		<div class="d-flex justify-content-between align-items-center">
-			<h1>Bots</h1>
+			<h2>Bots</h2>
 			<a href="${contextPath}/bot/form?page=bot-novo" class="btn btn-outline-primary">Novo Bot</a>
-		
 		</div>
 						
 		
