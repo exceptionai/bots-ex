@@ -16,36 +16,7 @@
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 </head>
 <body class="-bg-primary-color text-white">
-<header>
-
-    <div class="row mx-0 -bg-card">
-        <img src="<c:url value="/resources/img/logo.png" />"
-             alt="logo exception">
-        <div class="_container title-container">
-            <h1 class="application-title">Exception</h1>
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg sticky-top">
-
-
-        <div class="collapse navbar-collapse container _container"
-             id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link"
-                                        href="${contextPath}/bot">Bots</a></li>
-                <li class="nav-item active"><a class="nav-link"
-                                               href="${contextPath}/segment">Segmentos</a></li>
-            </ul>
-            <ul class="user-area navbar-nav d-flex align-items-center">
-                <li><a href=""><i class="fas fa-project-diagram"></i></a></li>
-                <li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
-                <li><span class="text-light pr-2">Lucas_Alessandro</span> <img
-                        src="<c:url value="/resources/img/profilepicture.png" />"
-                        class="rounded-circle" alt="Cinque Terre"></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<%@ include file="../shared/header.jsp" %>
 <main class="container">
 
     <h1>Novo Segmento</h1>
