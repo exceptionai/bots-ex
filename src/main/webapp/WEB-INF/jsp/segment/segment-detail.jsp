@@ -16,7 +16,10 @@
 </head>
 
 <body class="-bg-primary-color text-white">
-<%@ include file="../shared/header.jsp" %>
+<jsp:include page="../shared/header.jsp">
+    <jsp:param name="selected" value="segment"/>
+    <jsp:param name="path" value="${contextPath}"/>
+</jsp:include>
 <main class="container">
     <h2>Detalhes de ${segment.name}</h2>
     <br>
