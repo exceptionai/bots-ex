@@ -54,7 +54,16 @@
         </c:forEach>
         </tbody>
     </table>
+    <c:if test="${empty segments}">
+        <div class="d-flex align-items-center flex-column">
+            <div class="robots-none">
+                <img src="https://image.flaticon.com/icons/svg/3075/3075824.svg" title="Balão de Fala">
+            </div>
+            <h3  class="h1 text-light">Nenhum segmento de conversa registrado</h3>
+            <h4  class="h4 text-muted">Crie um novo com o assunto que quiser.</h4>
+        </div>
+        <hr>
+    </c:if>
 </main>
-
 </body>
 </html>

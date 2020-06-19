@@ -64,7 +64,17 @@
 				</c:forEach>
             </tbody>
 		</table>
+
+		<c:if test="${empty bots}">
+			<div class="d-flex align-items-center flex-column">
+				<div class="robots-none">
+					<img src="https://image.flaticon.com/icons/png/512/2728/2728268.png" title="Robo">
+				</div>
+				<h3  class="h1 text-light">Nenhum robô registrado</h3>
+				<h4  class="h4 text-muted">Adicione algum para conversar.</h4>
+			</div>
+			<hr>
+		</c:if>
 	</main>
-		
 	</body>
 </html>
