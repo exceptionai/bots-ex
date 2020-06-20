@@ -6,7 +6,7 @@
         <img src="<c:url value="/resources/img/logo.png" />"
              alt="logo exception">
         <div class="_container title-container">
-            <h1 class="application-title">Exceptions</h1>
+            <h1 class="application-title">Exception</h1>
         </div>
     </div>
     <nav class="navbar navbar-expand-lg sticky-top">
