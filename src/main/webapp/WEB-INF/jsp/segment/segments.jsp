@@ -9,11 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Segmentos - Listagem</title>
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vanillatoasts@1.3.0/vanillatoasts.js"></script>
+   	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+   	<link href="https://cdn.jsdelivr.net/npm/vanillatoasts@1.3.0/vanillatoasts.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+	
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 </head>
 <body class="-bg-primary-color text-white">
@@ -78,6 +80,27 @@
         </tbody>
     </table>
 </main>
+<c:if test="${not empty message}">
+		
+	<script>
+	
+	$(document).ready(()=>{
+			setTimeout(()=>{
+				let toast = VanillaToasts.create({
+					  title: '${message.title}!',
+					  text: '${message.message}',
+					  type: '${message.type}', 
+					  icon: '${message.icon}',
+					  timeout: 5000, 
+					  callback: function() { }
+					})
+			},800)
+		
+		});
+	
+		
+	</script>
+		</c:if>
 
 </body>
 </html>

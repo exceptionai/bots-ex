@@ -9,7 +9,10 @@
 <head>
 
     <title>Bots - Cadastro</title>
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+   	<script src="https://cdn.jsdelivr.net/npm/vanillatoasts@1.3.0/vanillatoasts.js"></script>
+   	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/vanillatoasts@1.3.0/vanillatoasts.css" rel="stylesheet">
+	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
@@ -51,9 +54,22 @@
 	<form:form modelAttribute="botModel" action="${contextPath}/bot" method="post">
 
 		<spring:hasBindErrors name="botModel">
-			<div role="alert">
-				<form:errors path="*" />
-			</div>
+			<script>
+	$(document).ready(()=>{
+		setTimeout(()=>{
+			let toast = VanillaToasts.create({
+				  title: 'Erro!',
+				  text: '<form:errors path="*" class="has-error"/>',
+				  type: '${MessageType.Error}', 
+			  	  icon: 'https://image.flaticon.com/icons/svg/901/901014.svg',
+				  timeout: 5000, 
+				  callback: function() { }
+				})
+		},800)
+	
+	});
+
+	</script>
 		</spring:hasBindErrors>
 
 		<div class="form-group">
