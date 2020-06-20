@@ -54,7 +54,7 @@
 
         <div class="form-group">
             <label class="control-label" for="name">Nome:</label>
-            <form:input type="text" class="form-control" path="name" id="name" maxlength="50" size="50" />
+            <form:input type="text" class="form-control" path="name" id="name" maxlength="255" size="50" />
             <form:errors path="name"/><br/>
         </div>
         <div class="form-group">

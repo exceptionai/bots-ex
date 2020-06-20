@@ -27,35 +27,33 @@
     <div class="d-flex justify-content-between align-items-center">
         <h2>Segmentos de Bot</h2>
 
-        <c:if test="${not empty messages}">
-            <h3>${messages}</h3>
-        </c:if>
-
         <a href="${contextPath}/segment/form?page=segment-new" class="btn btn-outline-primary">Novo Segmento</a>
     </div>
-    <table class="table mt-3 text-white">
-        <thead class="thead-dark">
-        <th data-field="name">Nome</th>
-        <th data-field="bot-name">Bot</th>
-        <th class="actions" width="220">Ações</th>
-        </thead>
-        <tbody>
-        <c:forEach items="${segments}" var="segment">
-            <tr>
-                <td>${segment.name}</td>
-                <td>${segment.bot.name}</td>
+    <div class="table-responsive">
+        <table class="table mt-3 text-white">
+            <thead class="thead-dark">
+            <th data-field="name">Nome</th>
+            <th data-field="bot-name">Bot</th>
+            <th class="actions" width="220">Ações</th>
+            </thead>
+            <tbody>
+            <c:forEach items="${segments}" var="segment">
+                <tr>
+                    <td>${segment.name}</td>
+                    <td>${segment.bot.name}</td>
 
-                <td><form:form action="${contextPath}/segment/${segment.id}"
-                               method="delete">
-                    <a class="btn btn-outline-primary" href="${contextPath}/segment/${segment.id}"><i class="far fa-comments"></i></a>
-                    <a class="btn btn-outline-warning" href="${contextPath}/segment/form?page=segment-edit&id=${segment.id}"><i class="far fa-edit"></i></a>
-                    <button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
-                </form:form>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+                    <td><form:form action="${contextPath}/segment/${segment.id}"
+                                   method="delete">
+                        <a class="btn btn-outline-primary" href="${contextPath}/segment/${segment.id}"><i class="far fa-comments"></i></a>
+                        <a class="btn btn-outline-warning" href="${contextPath}/segment/form?page=segment-edit&id=${segment.id}"><i class="far fa-edit"></i></a>
+                        <button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                    </form:form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
     <c:if test="${empty segments}">
         <div class="d-flex align-items-center flex-column">
             <div class="robots-none">

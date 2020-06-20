@@ -35,27 +35,27 @@
 
         <div class="form-group">
             <label for="name">Nome:</label>
-            <form:input class="form-control" type="text" path="name" id="name" maxlength="50" size="50"/>
+            <form:input class="form-control" type="text" path="name" id="name" maxlength="255" size="50"/>
             <font color="red"><form:errors path="name"/></font><br/>
         </div>
         <div class="form-group">
             <label for="welcomeMsg">Mensagem de boas vindas:</label>
-            <form:input class="form-control" type="text" path="welcomeMsg" id="welcomeMsg" maxlength="50" size="50"/>
+            <form:input class="form-control" type="text" path="welcomeMsg" id="welcomeMsg" maxlength="255" size="50"/>
             <font color="red"><form:errors path="welcomeMsg"/></font><br/>
         </div>
         <div class="form-group">
             <label for="farewellMsg">Mensagem de despedida:</label>
-            <form:input class="form-control" type="text" path="farewellMsg" id="farewellMsg" maxlength="50" size="50"/>
+            <form:input class="form-control" type="text" path="farewellMsg" id="farewellMsg" maxlength="255" size="50"/>
             <font color="red"><form:errors path="farewellMsg"/></font><br/>
         </div>
         <div class="form-group">
             <label for="downtime">Downtime:</label>
-            <form:input class="form-control" type="number" path="downtime" id="downtime" maxlength="50" size="50"/>
+            <form:input class="form-control" type="number" path="downtime" id="downtime" maxlength="11" size="50"/>
             <font color="red"><form:errors path="downtime"/></font><br/>
         </div>
         <div class="form-group">
             <label for="defaultAnswer">Resposta padrão:</label>
-            <form:input class="form-control" type="text" path="defaultAnswer" id="defaultAnswer" maxlength="50" size="50"/>
+            <form:input class="form-control" type="text" path="defaultAnswer" id="defaultAnswer" maxlength="255" size="50"/>
             <font color="red"><form:errors path="defaultAnswer"/></font><br/>
         </div>
         <button class="btn btn-outline-primary" type="submit" class="btn">Gravar</button>

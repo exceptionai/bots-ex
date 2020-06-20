@@ -26,48 +26,45 @@
 			<h2>Bots</h2>
 			<a href="${contextPath}/bot/form?page=bot-novo" class="btn btn-outline-primary">Novo Bot</a>
 		</div>
-						
-		
-		<c:if test="${not empty messages}">
-			<h3>${messages}</h3>
-		</c:if>
-		
-		<table  class="table mt-3 text-white">
-			<thead class="thead-dark">
-				<tr>
-					<th data-field="name">Nome</th>
-					<th data-field="welcome_msg">Mensagem de boas vindas</th>
-					<th data-field="farewell_msg">Mensagem de despedida</th>
-					<th data-field="downtime">Downtime</th>
-					<th data-field="default_answer">Resposta padrão</th>
-					<th class="actions" width="220">Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-				<c:forEach items="${bots}" var="bot">
+
+		<div class="table-responsive">
+			<table class="table mt-3 text-white">
+				<thead class="thead-dark">
 					<tr>
-						<td>${bot.name}</td>
-						<td>${bot.welcomeMsg}</td>
-						<td>${bot.farewellMsg}</td>
-						<td>${bot.downtime}</td>
-						<td>${bot.defaultAnswer}</td>
-						
-						<td>
-						
-							<form:form action="${contextPath}/bot/${bot.idBot}" method="delete">
-							
-								<a class="btn btn-outline-primary" href="${contextPath}/bot/${bot.idBot}"><i class="fas fa-robot"></i></a>
-								<a href="${contextPath}/bot/form?page=bot-editar&id=${bot.idBot}" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
-								<button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
-							</form:form>
-							
-						</td>
+						<th data-field="name">Nome</th>
+						<th data-field="welcome_msg">Mensagem de boas vindas</th>
+						<th data-field="farewell_msg">Mensagem de despedida</th>
+						<th data-field="downtime">Downtime</th>
+						<th data-field="default_answer">Resposta padrão</th>
+						<th class="actions" width="220">Ações</th>
 					</tr>
-				</c:forEach>
-            </tbody>
-		</table>
-		
+				</thead>
+				<tbody>
+
+					<c:forEach items="${bots}" var="bot">
+						<tr>
+							<td>${bot.name}</td>
+							<td>${bot.welcomeMsg}</td>
+							<td>${bot.farewellMsg}</td>
+							<td>${bot.downtime}</td>
+							<td>${bot.defaultAnswer}</td>
+
+							<td>
+
+								<form:form action="${contextPath}/bot/${bot.idBot}" method="delete">
+
+									<a class="btn btn-outline-primary" href="${contextPath}/bot/${bot.idBot}"><i class="fas fa-robot"></i></a>
+									<a href="${contextPath}/bot/form?page=bot-editar&id=${bot.idBot}" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
+									<button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+								</form:form>
+
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+
 		<c:if test="${empty bots}">
 			<div class="d-flex align-items-center flex-column">
 				<div class="robots-none">
