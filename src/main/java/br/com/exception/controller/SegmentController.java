@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.exception.model.MessageModel;
+import br.com.exception.model.MessageType;
 import br.com.exception.model.SegmentModel;
 
 @Controller
@@ -69,7 +71,8 @@ private static final String SEGMENT_FOLDER = "segment/";
 		}
 		
 		segmentService.save(segmentModel);
-		redirectAttributes.addFlashAttribute("messages", "Segmento cadastrado com sucesso!");
+		MessageModel message = new MessageModel("Sucesso","Segmento cadastrado com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", message);
 		
 		return "redirect:/segment";
 	}
@@ -84,7 +87,8 @@ private static final String SEGMENT_FOLDER = "segment/";
 		
 		segmentModel.setId(id);
 		segmentService.save(segmentModel);
-		redirectAttributes.addFlashAttribute("messages", "Segmento alterado com sucesso!");
+		MessageModel message = new MessageModel("Sucesso","Segmento alterado com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", message);
 		
 		return "redirect:/segment";
 	}
@@ -93,7 +97,8 @@ private static final String SEGMENT_FOLDER = "segment/";
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
 		segmentService.delete(id);
-		redirectAttributes.addFlashAttribute("messages", "Segmento excluído com sucesso!");
+		MessageModel message = new MessageModel("Sucesso","Segmento excluído com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", message);
 
 		return "redirect:/segment";
 	}

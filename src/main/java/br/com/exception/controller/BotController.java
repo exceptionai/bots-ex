@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.exception.model.BotModel;
+import br.com.exception.model.MessageModel;
+import br.com.exception.model.MessageType;
 
 @Controller
 @RequestMapping("/bot")
@@ -63,7 +65,8 @@ public class BotController {
 		}
 		
 		botService.save(botModel);
-		redirectAttributes.addFlashAttribute("messages", "Bot cadastrado com sucesso!");
+		MessageModel messages = new MessageModel("Sucesso","Bot cadastrado com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", messages);
 		
 		return "redirect:/bot";
 	}
@@ -77,7 +80,9 @@ public class BotController {
 		
 		botModel.setIdBot(id);
 		botService.save(botModel);
-		redirectAttributes.addFlashAttribute("messages", "Bot alterado com sucesso!");
+		
+		MessageModel messages = new MessageModel("Sucesso","Bot alterado com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", messages);
 		
 		return "redirect:/bot";
 	}
@@ -86,7 +91,9 @@ public class BotController {
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
 		botService.delete(id);
-		redirectAttributes.addFlashAttribute("messages", "Bot excluído com sucesso!");
+		
+		MessageModel messages = new MessageModel("Sucesso","Bot excluído com sucesso!",MessageType.success);
+		redirectAttributes.addFlashAttribute("message", messages);
 
 		return "redirect:/bot";
 	}
