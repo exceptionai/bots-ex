@@ -31,12 +31,6 @@
 
     <form:form modelAttribute="botModel" action="${contextPath}/bot" method="post">
 
-        <spring:hasBindErrors name="botModel">
-            <div role="alert">
-                <form:errors path="*"/>
-            </div>
-        </spring:hasBindErrors>
-
 		<spring:hasBindErrors name="botModel">
 			<script>
 	$(document).ready(()=>{
