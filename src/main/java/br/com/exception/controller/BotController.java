@@ -65,7 +65,7 @@ public class BotController {
 		}
 		
 		botService.save(botModel);
-		MessageModel messages = new MessageModel("Sucesso!","Bot cadastrado com sucesso!",MessageType.success);
+		MessageModel messages = new MessageModel("Sucesso","Bot cadastrado com sucesso!",MessageType.success);
 		redirectAttributes.addFlashAttribute("message", messages);
 		
 		return "redirect:/bot";
@@ -81,7 +81,7 @@ public class BotController {
 		botModel.setIdBot(id);
 		botService.save(botModel);
 		
-		MessageModel messages = new MessageModel("Sucesso!","Bot alterado com sucesso!",MessageType.success);
+		MessageModel messages = new MessageModel("Sucesso","Bot alterado com sucesso!",MessageType.success);
 		redirectAttributes.addFlashAttribute("message", messages);
 		
 		return "redirect:/bot";
@@ -92,7 +92,7 @@ public class BotController {
 		
 		botService.delete(id);
 		
-		MessageModel messages = new MessageModel("Sucesso!","Bot excluído com sucesso!",MessageType.success);
+		MessageModel messages = new MessageModel("Sucesso","Bot excluído com sucesso!",MessageType.success);
 		redirectAttributes.addFlashAttribute("message", messages);
 
 		return "redirect:/bot";

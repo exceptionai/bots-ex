@@ -17,38 +17,10 @@
     	<c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 	</head>
 	<body class="-bg-primary-color text-white">
-	
-	<header>
-		<div class="row mx-0 -bg-card">
-			<img src="<c:url value="/resources/img/logo.png" />"
-				 alt="logo exception">
-			<div class="_container title-container">
-				<h1 class="application-title">Exception</h1>
-			</div>
-		</div>
-		<nav class="navbar navbar-expand-lg sticky-top">
-
-
-			<div class="collapse navbar-collapse container _container"
-				id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="${contextPath}/bot">Bots</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="${contextPath}/segment">Segmentos</a></li>
-				</ul>
-				<ul class="user-area navbar-nav d-flex align-items-center">
-					<li><a href=""><i class="fas fa-project-diagram"></i></a></li>
-					<li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
-					<li><span class="text-light pr-2">Lucas_Alessandro</span> <img
-						src="<c:url value="/resources/img/profilepicture.png" />"
-						class="rounded-circle" alt="Cinque Terre"></li>
-
-				</ul>
-
-			</div>
-		</nav>
-	</header>
+	<jsp:include page="../shared/header.jsp">
+		<jsp:param name="selected" value="bot"/>
+		<jsp:param name="path" value="${contextPath}"/>
+	</jsp:include>
 	<main class="container">
 		<div class="d-flex justify-content-between align-items-center">
 			<h2>Bots</h2>
@@ -95,29 +67,40 @@
 				</c:forEach>
             </tbody>
 		</table>
+		
+		<c:if test="${empty bots}">
+			<div class="d-flex align-items-center flex-column">
+				<div class="robots-none">
+					<img src="https://image.flaticon.com/icons/png/512/2728/2728268.png" title="Robo">
+				</div>
+				<h3  class="h1 text-light">Nenhum robô registrado</h3>
+				<h4  class="h4 text-muted">Adicione algum para conversar.</h4>
+			</div>
+			<hr>
+		</c:if>
 	</main>
 		
-		<c:if test="${not empty message}">
+	<c:if test="${not empty message}">
 		
-	<script>
-	
-	$(document).ready(()=>{
-			setTimeout(()=>{
-				let toast = VanillaToasts.create({
-					  title: '${message.title}!',
-					  text: '${message.message}',
-					  type: '${message.type}', 
-					  icon: '${message.icon}',
-					  timeout: 5000, 
-					  callback: function() { }
-					})
-			},800)
+		<script>
 		
-		});
-	
+		$(document).ready(()=>{
+				setTimeout(()=>{
+					let toast = VanillaToasts.create({
+						  title: '${message.title}!',
+						  text: '${message.message}',
+						  type: '${message.type}', 
+						  icon: '${message.icon}',
+						  timeout: 5000, 
+						  callback: function() { }
+						})
+				},800)
+			
+			});
 		
-	</script>
-		</c:if>
+			
+		</script>
+			</c:if>		
 		
 	</body>
 </html>
